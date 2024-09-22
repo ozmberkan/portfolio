@@ -25,7 +25,7 @@ const Header = () => {
           <Link
             key={tab.id}
             to={tab.to}
-            className="text-mainWhiteText font-bold text-[13px] "
+            className="text-mainWhiteText font-bold text-[14px] "
           >
             {tab.label}
           </Link>

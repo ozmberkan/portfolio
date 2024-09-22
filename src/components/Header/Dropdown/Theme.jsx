@@ -9,16 +9,24 @@ import {
 import { FaAngleDown } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "~/redux/slices/themeSlice";
+import { BsStars } from "react-icons/bs";
 
 const Theme = () => {
   const { theme } = useSelector((store) => store.theme);
-
   const dispatch = useDispatch();
 
   return (
     <Menu>
-      <MenuButton className="text-black font-bold text-[13px] gap-x-1 flex items-center bg-[#ECECEC] px-2 py-1 rounded-xl">
-        Tema Seç
+      <MenuButton
+        className={`text-black font-bold text-[14px] gap-x-2 transition-all duration-300  flex items-center bg-[#ECECEC] px-4 py-1 rounded-md hover:text-mainWhiteText
+          ${theme === "orange" ? "hover:bg-mainOrange" : null}
+          ${theme === "blue" ? "hover:bg-mainBlue" : null}
+          ${theme === "green" ? "hover:bg-mainGreen" : null}
+          ${theme === "pink" ? "hover:bg-mainPink" : null}
+          `}
+      >
+        <BsStars size={18} />
+        TEMA SEÇ
         <FaAngleDown />
       </MenuButton>
       <Transition
