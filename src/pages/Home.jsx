@@ -18,7 +18,7 @@ const Home = () => {
       <h1 className="font-jersey text-[90px] text-mainWhiteText leading-tight">
         <Typewriter
           options={{
-            strings: ["Front End Developer", "React Developer", "Next JS"],
+            strings: ["Front End Developer", "React Developer", "Next.JS"],
             autoStart: true,
             loop: true,
           }}
