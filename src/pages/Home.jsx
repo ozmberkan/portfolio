@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div
       className={`w-full h-2/3 
-        transition-all duration-500
+        transition-all duration-500 shadow-innerShadow
     ${theme === "orange" ? "bg-orange" : null}
     ${theme === "blue" ? "bg-blue" : null}
     ${theme === "green" ? "bg-green" : null}

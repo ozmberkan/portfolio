@@ -1,14 +1,14 @@
 import {
   FaLinkedin,
   FaGithub,
-  FaTwitter,
   FaTwitterSquare,
+  FaMailchimp,
 } from "react-icons/fa";
-import Typewriter from "typewriter-effect";
+import { IoMdMail } from "react-icons/io";
 
 const About = () => {
   return (
-    <div className="w-full h-3/4 bg-gray bg-no-repeat bg-cover bg-center rounded-b-[30px] p-12 flex flex-col justify-between">
+    <div className="w-full h-3/4  rounded-b-[30px] p-12 flex flex-col justify-between">
       <p className="font-poppins font-bold text-[25px] text-mainWhiteText leading-normal">
         Ben bir Ön Uç Geliştirici & Tasarımcı olarak dijital projelere hayat
         veriyorum. 2024 yılında Dokuz Eylül Üniversitesi ‘Çalışma Ekonomisi ve
@@ -26,7 +26,7 @@ const About = () => {
 
       <div className="flex gap-4 mt-8">
         <a
-          href="https://linkedin.com/in/yourprofile"
+          href="https://linkedin.com/in/berkanozm"
           target="_blank"
           rel="noopener noreferrer"
           className="text-mainWhiteText hover:text-blue-500 transition-colors duration-200"
@@ -34,7 +34,7 @@ const About = () => {
           <FaLinkedin size={30} />
         </a>
         <a
-          href="https://github.com/yourprofile"
+          href="https://github.com/ozmberkan"
           target="_blank"
           rel="noopener noreferrer"
           className="text-mainWhiteText hover:text-gray-500 transition-colors duration-200"
@@ -42,12 +42,18 @@ const About = () => {
           <FaGithub size={30} />
         </a>
         <a
-          href="https://twitter.com/yourprofile"
+          href="https://twitter.com/berkannozm"
           target="_blank"
           rel="noopener noreferrer"
           className="text-mainWhiteText hover:text-blue-400 transition-colors duration-200"
         >
           <FaTwitterSquare size={30} />
+        </a>
+        <a
+          href="mailto:ozmberkan@gmal.com"
+          className="text-mainWhiteText hover:text-red-400 transition-colors duration-200"
+        >
+          <IoMdMail size={30} />
         </a>
       </div>
     </div>

@@ -17,8 +17,9 @@ const Theme = () => {
 
   return (
     <Menu>
-      <MenuButton className="text-black font-bold text-[13px] gap-x-1 flex items-center bg-[#ECECEC] px-2 py-1 rounded-md">
-        THEME <FaAngleDown />
+      <MenuButton className="text-black font-bold text-[13px] gap-x-1 flex items-center bg-[#ECECEC] px-2 py-1 rounded-xl">
+        Tema Seç
+        <FaAngleDown />
       </MenuButton>
       <Transition
         as={React.Fragment}
@@ -31,15 +32,15 @@ const Theme = () => {
       >
         <MenuItems
           anchor="bottom end"
-          className="mt-5 bg-mainBg border border-mainBoxBg text-mainWhiteText rounded-md px-2 py-2 flex flex-col gap-y-2"
+          className="mt-5 bg-mainBg border border-mainBoxBg text-mainWhiteText rounded-xl px-2 py-2 flex flex-col gap-y-2"
         >
           <MenuItem>
             <button
               onClick={() => dispatch(setTheme("orange"))}
               className=" data-[focus]:bg-mainBoxBg  rounded-md w-full py-1.5 flex justify-start items-center px-5 gap-x-3"
             >
-              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-orange-400 to-orange-700"></span>
-              Turuncu Tema
+              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-mainOrange to-orange-700"></span>
+              Turuncu
             </button>
           </MenuItem>
           <MenuItem>
@@ -47,8 +48,8 @@ const Theme = () => {
               className=" data-[focus]:bg-mainBoxBg  rounded-md w-full py-1.5 flex justify-start items-center px-5 gap-x-3"
               onClick={() => dispatch(setTheme("blue"))}
             >
-              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-blue-400 to-blue-700"></span>
-              Mavi Tema
+              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-mainBlue to-blue-700"></span>
+              Mavi
             </button>
           </MenuItem>
           <MenuItem>
@@ -56,8 +57,8 @@ const Theme = () => {
               className=" data-[focus]:bg-mainBoxBg  rounded-md w-full py-1.5 flex justify-start items-center px-5 gap-x-3"
               onClick={() => dispatch(setTheme("green"))}
             >
-              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-green-400 to-green-700"></span>
-              Yeşil Tema
+              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-mainGreen to-green-700"></span>
+              Yeşil
             </button>
           </MenuItem>
           <MenuItem>
@@ -65,8 +66,8 @@ const Theme = () => {
               className=" data-[focus]:bg-mainBoxBg  rounded-md w-full py-1.5 flex justify-start items-center px-5 gap-x-3"
               onClick={() => dispatch(setTheme("pink"))}
             >
-              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-pink-400 to-pink-700"></span>
-              Pembe Tema
+              <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-mainPink to-pink-700"></span>
+              Pembe
             </button>
           </MenuItem>
         </MenuItems>

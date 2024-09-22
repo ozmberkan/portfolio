@@ -1,4 +1,4 @@
 export const rightTab = [
-  { id: 1, label: "ABOUT", to: "/about" },
-  { id: 2, label: "PROJECT", to: "/project" },
+  { id: 1, label: "HAKKIMDA", to: "/about" },
+  { id: 2, label: "PROJELERİM", to: "/project" },
 ];

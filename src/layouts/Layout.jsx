@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <section className="w-full h-screen flex justify-center items-center px-[80px] py-[80px] ">
       <div
-        className="bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 
+        className="bg-zinc-700 bg-clip-padding backdrop-filter backdrop-blur-2xl border border-zinc-600/25 bg-opacity-20 
   w-full h-full rounded-[30px] flex flex-col justify-between"
       >
         <Header />

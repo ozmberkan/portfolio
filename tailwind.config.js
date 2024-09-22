@@ -24,6 +24,7 @@ export default {
         greenShadow: "0px 50px 250px 86px rgba(30, 209, 29, 1)",
         blueShadow: "0px 50px 250px 86px rgba(32, 212, 200, 1)",
         pinkShadow: "0px 50px 250px 86px rgba(176, 42, 112, 1)",
+        innerShadow: "0px -166px 120px -30px rgba(10,9,9,0.92) inset",
       },
       backgroundImage: {
         blue: "url('/banners/blue.png')",
