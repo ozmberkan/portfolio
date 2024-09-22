@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import { useSelector } from "react-redux";
+import ProjectDetail from "./pages/ProjectDetail";
 
 const App = () => {
   const { theme } = useSelector((store) => store.theme);
@@ -29,6 +30,10 @@ const App = () => {
         {
           path: "/projects",
           element: <Projects />,
+        },
+        {
+          path: "/projects/:id",
+          element: <ProjectDetail />,
         },
       ],
     },
