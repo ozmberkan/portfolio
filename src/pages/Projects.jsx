@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { db } from "~/firebase/firebase";
 import { setProjects } from "~/redux/slices/projectsSlice";
 import ProjectBox from "~/components/Projects/ProjectBox";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const Projects = () => {
@@ -29,7 +29,11 @@ const Projects = () => {
       {loading
         ? Array(7)
             .fill(0)
-            .map((_, idx) => <Skeleton key={idx} height={170} />)
+            .map((_, idx) => (
+              <SkeletonTheme color="#202020" highlightColor="#444">
+                <Skeleton key={idx} height={170} />
+              </SkeletonTheme>
+            ))
         : data?.map((project) => (
             <ProjectBox key={project.id} project={project} />
           ))}
