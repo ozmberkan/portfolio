@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Menu,
   MenuButton,
@@ -10,6 +9,7 @@ import { FaAngleDown } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "~/redux/slices/themeSlice";
 import { BsStars } from "react-icons/bs";
+import { Fragment } from "react";
 
 const Theme = () => {
   const { theme } = useSelector((store) => store.theme);
@@ -23,7 +23,7 @@ const Theme = () => {
         <FaAngleDown />
       </MenuButton>
       <Transition
-        as={React.Fragment}
+        as={Fragment}
         enter="transition ease-out duration-300"
         enterFrom="opacity-0 scale-95"
         enterTo="opacity-100 scale-100"

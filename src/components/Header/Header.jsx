@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { rightTab } from "~/data/data";
-import Theme from "./Dropdown/Theme";
 import { useSelector } from "react-redux";
+import Theme from "./Dropdown/Theme";
 
 const Header = () => {
   const { theme } = useSelector((store) => store.theme);

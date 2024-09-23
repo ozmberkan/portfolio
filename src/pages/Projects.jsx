@@ -1,10 +1,10 @@
 import { collection } from "firebase/firestore";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useDispatch } from "react-redux";
-import ProjectBox from "~/components/Projects/ProjectBox";
 import { db } from "~/firebase/firebase";
 import { setProjects } from "~/redux/slices/projectsSlice";
+import ProjectBox from "~/components/Projects/ProjectBox";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 

@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { homeText } from "~/data/data";
 import Typewriter from "typewriter-effect";
 
 const Home = () => {
@@ -30,13 +31,7 @@ const Home = () => {
         />
       </h1>
       <p className="font-poppins font-semibold sm:text-[30px] text-sm text-mainWhiteText sm:leading-tight">
-        Tutkulu bir Front-End Geliştirici olarak, en son web teknolojilerini
-        kullanarak duyarlı ve kullanıcı dostu arayüzler geliştiriyorum. React ve
-        Next.js üzerinde uzmanlaşarak, kullanıcıların sorunsuz deneyimler
-        yaşadığı dinamik ve etkileşimli web uygulamaları oluşturuyorum. Modern
-        web siteleri geliştirmek ya da özel çözümler üretmek olsun, her zaman
-        kaliteli kod, sezgisel tasarımlar ve ölçeklenebilir çözümler sunmaya
-        odaklanıyorum.
+        {homeText}
       </p>
     </div>
   );
