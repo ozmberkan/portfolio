@@ -6,7 +6,6 @@ import { db } from "~/firebase/firebase";
 import { setProjects } from "~/redux/slices/projectsSlice";
 import ProjectBox from "~/components/Projects/ProjectBox";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 
 const Projects = () => {
   const projectsRef = collection(db, "projects");
