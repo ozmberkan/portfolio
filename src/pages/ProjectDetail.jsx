@@ -53,7 +53,9 @@ const ProjectDetail = () => {
             <span className="p-2 rounded-md border-mainBoxBorder border bg-mainBg ">
               <FaMobile />
             </span>
-            {detailedProject.responsive === true ? "Duyarlı" : "Duyarlı Değil"}
+            {detailedProject.responsive === "true"
+              ? "Duyarlı"
+              : "Duyarlı Değil"}
           </div>
         </div>
         <div className="flex gap-x-4">
