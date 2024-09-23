@@ -7,7 +7,7 @@ const Layout = () => {
   const { theme } = useSelector((store) => store.theme);
 
   return (
-    <section className="w-full h-screen flex justify-center items-center px-[80px] py-[80px] ">
+    <section className="w-full sm:h-screen h-full  flex justify-center items-center sm:px-[80px] sm:py-[80px] p-6 ">
       <div
         className="bg-zinc-700 bg-clip-padding backdrop-filter backdrop-blur-2xl border border-zinc-600/25 bg-opacity-20 
   w-full h-full rounded-[30px] flex flex-col justify-between"
@@ -16,7 +16,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <div
-        className={`w-[300px] h-[300px] rounded-full absolute left-28 -z-10 transition-all duration-500
+        className={`sm:w-[300px] sm:h-[300px] w-[150px] h-[150px] rounded-full absolute sm:left-28  -z-10 transition-all duration-500
 
   ${theme === "orange" ? "bg-mainOrange blur-xl shadow-orangeShadow" : null}
   ${theme === "blue" ? "bg-mainBlue blur-xl shadow-blueShadow" : null}

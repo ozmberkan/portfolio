@@ -1,90 +1,82 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import {
+  FaCode,
+  FaPaintBrush,
+  FaMobile,
+  FaLink,
+  FaGithub,
+} from "react-icons/fa";
 
 const ProjectDetail = () => {
   const { projects } = useSelector((store) => store.projects);
   const { id } = useParams();
 
-  // ID'lerin aynı formatta olup olmadığını kontrol etmek
+  console.log(projects);
+
   const detailedProject = projects.find(
     (project) => String(project.id) === String(id)
   );
 
-  if (!detailedProject) {
-    return <div>Project not found.</div>;
-  }
-
   return (
-    <div className="h-auto w-full p-10 flex flex-col items-center font-poppins">
-      {/* Proje Görseli */}
-      <div className="w-full md:w-2/3 lg:w-1/2 h-64 mb-6">
-        <img
-          src={detailedProject.image}
-          alt={detailedProject.title}
-          className="w-full h-full object-cover rounded-lg shadow-lg"
-        />
-      </div>
+    <div className="h-2/3 w-full flex justify-start items-start gap-x-5 p-5 font-poppins sm:flex-row flex-col gap-y-4">
+      <img
+        src={detailedProject.image}
+        className="sm:w-1/2 w-full sm:h-full object-cover rounded-xl"
+      />
+      <div className="flex  flex-col gap-y-5 text-center sm:text-left sm:justify-start justify-center items-center sm:items-start  sm:h-full">
+        <h1 className="sm:text-3xl text-lg font-bold flex gap-x-2 sm:items-end text-mainWhiteText/80 ">
+          {detailedProject.title}
+          <span className="text-sm">{detailedProject.version}</span>
+        </h1>
+        <p className="sm:text-xl text-sm text-mainWhiteText ">
+          {detailedProject.description}
+        </p>
 
-      {/* Proje Başlığı */}
-      <h2 className="text-4xl  text-mainWhiteText mb-4 font-jersey ">
-        {detailedProject.title} - {detailedProject.version}
-      </h2>
-
-      {/* Proje Açıklaması */}
-      <p className="text-lg text-mainWhiteText text-center mb-8 px-4 md:px-0">
-        {detailedProject.description}
-      </p>
-
-      {/* Proje Detay Bilgileri */}
-      <div className="w-full md:w-2/3 lg:w-1/2 flex flex-col items-center gap-4">
-        {/* Proje Önceki Versiyon */}
-        <div className="flex justify-between w-full">
-          <span className="text-mainWhiteText">Previous Version:</span>
-          <span className="text-mainWhiteText font-medium">
-            {detailedProject.prevVersion}
-          </span>
-        </div>
-
-        {/* Proje Teknolojileri */}
-        <div className="flex flex-wrap justify-center w-full">
-          <span className="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full m-1">
+        <div className="flex gap-x-4 sm:flex-row flex-col gap-y-4">
+          <div className=" px-4 py-1 rounded-md text-sm border border-zinc-700 bg-mainBoxBg flex items-center gap-x-2 text-mainWhiteText">
+            <span className="p-2 rounded-md border-mainBoxBorder border bg-mainBg ">
+              <FaCode />
+            </span>
             {detailedProject.technology}
-          </span>
-          <span className="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full m-1">
-            {detailedProject.styleTech}
-          </span>
-        </div>
-
-        {/* Responsive Durumu */}
-        <div className="flex justify-between w-full">
-          <span className="text-mainWhiteText">Responsive:</span>
-          <span className="text-mainWhiteText font-medium">
-            {detailedProject.responsive === "true" ? "Yes" : "No"}
-          </span>
-        </div>
-
-        {/* Proje Linkleri (GitHub ve Canlı Demo) */}
-        {detailedProject.githubLink && (
-          <div className="w-full mt-6 flex justify-center gap-4">
-            <a
-              href={detailedProject.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              GitHub Repository
-            </a>
-            <a
-              href={detailedProject.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              Live Demo
-            </a>
           </div>
-        )}
+
+          <div className=" px-4 py-1 rounded-md text-sm border border-zinc-700 bg-mainBoxBg flex items-center gap-x-2 text-mainWhiteText">
+            <span className="p-2 rounded-md border-mainBoxBorder border bg-mainBg ">
+              <FaPaintBrush />
+            </span>
+            {detailedProject.styleTech}
+          </div>
+
+          <div className=" px-4 py-1 rounded-md text-sm border border-zinc-700 bg-mainBoxBg flex items-center gap-x-2 text-mainWhiteText">
+            <span className="p-2 rounded-md border-mainBoxBorder border bg-mainBg ">
+              <FaMobile />
+            </span>
+            {detailedProject.responsive === true ? "Duyarlı" : "Duyarlı Değil"}
+          </div>
+        </div>
+        <div className="flex gap-x-4">
+          <Link
+            to={detailedProject.link}
+            className=" px-4 py-1 rounded-md text-sm border border-zinc-700 bg-mainBoxBg flex items-center gap-x-2 text-mainWhiteText"
+          >
+            <span className="p-2 rounded-md border-mainBoxBorder border bg-mainBg ">
+              <FaLink />
+            </span>
+            Demo
+          </Link>
+
+          <Link
+            to={detailedProject.githubLink}
+            className=" px-4 py-1 rounded-md text-sm border border-zinc-700 bg-mainBoxBg flex items-center gap-x-2 text-mainWhiteText"
+          >
+            <span className="p-2 rounded-md border-mainBoxBorder border bg-mainBg ">
+              <FaGithub />
+            </span>
+            Github
+          </Link>
+        </div>
       </div>
     </div>
   );

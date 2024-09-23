@@ -17,14 +17,7 @@ const Theme = () => {
 
   return (
     <Menu>
-      <MenuButton
-        className={`text-black font-bold text-[14px] gap-x-2 transition-all duration-300  flex items-center bg-[#ECECEC] px-4 py-1 rounded-md hover:text-mainWhiteText
-          ${theme === "orange" ? "hover:bg-mainOrange" : null}
-          ${theme === "blue" ? "hover:bg-mainBlue" : null}
-          ${theme === "green" ? "hover:bg-mainGreen" : null}
-          ${theme === "pink" ? "hover:bg-mainPink" : null}
-          `}
-      >
+      <MenuButton className="text-mainWhiteText font-semibold text-sm hover:text-zinc-500 sm:bg-none bg-mainBg  gap-x-1 flex justify-center items-center px-5 py-1.5 rounded-md transition-all duration-500 whitespace-nowrap">
         <BsStars size={18} />
         TEMA SEÇ
         <FaAngleDown />
@@ -40,7 +33,7 @@ const Theme = () => {
       >
         <MenuItems
           anchor="bottom end"
-          className="mt-5 bg-mainBg border border-mainBoxBg text-mainWhiteText rounded-xl px-2 py-2 flex flex-col gap-y-2"
+          className="mt-1 bg-mainBg outline-none  text-mainWhiteText rounded-xl p-2 flex flex-col gap-y-2"
         >
           <MenuItem>
             <button
