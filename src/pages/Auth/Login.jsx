@@ -1,17 +1,34 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { BiLogInCircle } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginService } from "~/redux/slices/userSlice";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { status } = useSelector((state) => state.user);
 
   const loginHandle = (data) => {
-    try {
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(loginService(data));
   };
+
+  useEffect(() => {
+    if (status === "success") {
+      toast.success("Başarıyla giriş yaptınız.");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+    if (status === "failed") {
+      toast.error("Kullanıcı adı veya parola hatalı.");
+    }
+  }, [status]);
 
   return (
     <div className="flex flex-col gap-3">

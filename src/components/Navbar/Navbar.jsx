@@ -40,10 +40,10 @@ const Navbar = () => {
       </div>
       <Logo />
 
-      {user && <div className="w-44 h-6"></div>}
-      {!user && (
+      {!user && <div className="w-44 h-6"></div>}
+      {user && (
         <Link
-          to="/admin"
+          to="/dashboard"
           className="w-44 py-2 rounded-md bg-[#202020] font-inter text-sm text-white flex justify-center items-center"
         >
           Admin Paneli
