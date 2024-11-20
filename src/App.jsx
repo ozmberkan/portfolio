@@ -1,9 +1,10 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeRoutes } from "./routes/HomeRoutes";
+import { AuthRoutes } from "./routes/AuthRoutes";
+import { AdminRoutes } from "./routes/AdminRoutes";
 
 const App = () => {
-  const router = createBrowserRouter([HomeRoutes], {
+  const router = createBrowserRouter([HomeRoutes, AuthRoutes, AdminRoutes], {
     future: {
       v7_fetcherPersist: true,
       v7_normalizeFormMethod: true,

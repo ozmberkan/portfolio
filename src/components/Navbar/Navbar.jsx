@@ -5,10 +5,13 @@ import English from "~/assets/england.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguage } from "~/redux/slices/languageSlice";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { language } = useSelector((state) => state.language);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
+
+  const { user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -22,20 +25,30 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1 }}
-      className="w-full h-15 flex justify-between items-center p-3 "
+      className="w-full h-15 flex justify-between items-center p-3 gap-x-3 "
     >
-      {language === "en" ? (
-        <button onClick={() => changeLanguage("tr")}>
-          <img src={Turkish} className="w-6 rounded-full h-6 object-cover" />
-        </button>
-      ) : (
-        <button onClick={() => changeLanguage("en")}>
-          <img src={English} className="w-6 rounded-full h-6 object-cover" />
-        </button>
-      )}
+      <div className="w-44">
+        {language === "en" ? (
+          <button onClick={() => changeLanguage("tr")}>
+            <img src={Turkish} className="w-6 rounded-full h-6 object-cover" />
+          </button>
+        ) : (
+          <button onClick={() => changeLanguage("en")}>
+            <img src={English} className="w-6 rounded-full h-6 object-cover" />
+          </button>
+        )}
+      </div>
       <Logo />
 
-      <div className="w-6 h-6"></div>
+      {user && <div className="w-44 h-6"></div>}
+      {!user && (
+        <Link
+          to="/admin"
+          className="w-44 py-2 rounded-md bg-[#202020] font-inter text-sm text-white flex justify-center items-center"
+        >
+          Admin Paneli
+        </Link>
+      )}
     </motion.div>
   );
 };
