@@ -2,9 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeRoutes } from "./routes/HomeRoutes";
 import { AuthRoutes } from "./routes/AuthRoutes";
 import { AdminRoutes } from "./routes/AdminRoutes";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAllMyProjects } from "./redux/slices/projectsSlice";
 
 const App = () => {
   const router = createBrowserRouter([HomeRoutes, AuthRoutes, AdminRoutes], {
