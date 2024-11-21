@@ -7,42 +7,29 @@ import { useDispatch } from "react-redux";
 import { projectInputs } from "~/data/data";
 import { getAllMyProjects } from "~/redux/slices/projectsSlice";
 
-const ProjectModal = ({ setProjectModal }) => {
-  const { register, handleSubmit } = useForm();
+const EditModal = ({ setIsEditMode, selectedProject }) => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      projectTitle: selectedProject.projectTitle,
+      projectDescription: selectedProject.projectDescription,
+      projectImage: selectedProject.projectImage,
+      projectLink: selectedProject.projectLink,
+      projectGithubLink: selectedProject.projectGithubLink,
+      projectVersion: selectedProject.projectVersion,
+      projectResponsive: selectedProject.projectResponsive,
+      projectTechnology: selectedProject.projectTechnology,
+      projectStyleTechnology: selectedProject.projectStyleTechnology,
+    },
+  });
   const dispatch = useDispatch();
 
-  const createProjectHandle = async (data) => {
+  const updateProjectHandle = async (data) => {
     try {
-      const file = data.projectImage[0];
-      if (!file) return;
-
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", import.meta.env.VITE_UPLOAD_PRESET);
-      formData.append("cloud_name", import.meta.env.VITE_CLOUD_NAME);
-
-      const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${
-          import.meta.env.VITE_CLOUD_NAME
-        }/image/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/project/update/${selectedProject._id}`,
+        data
       );
-
-      const uploadedImage = await res.json();
-
-      const projectData = {
-        ...data,
-        projectImage: uploadedImage.secure_url,
-      };
-
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/project/create`,
-        projectData
-      );
-      setProjectModal(false);
+      setIsEditMode(false);
       dispatch(getAllMyProjects());
       toast.success("Proje başarıyla oluşturuldu.");
     } catch (error) {
@@ -66,7 +53,7 @@ const ProjectModal = ({ setProjectModal }) => {
         </div>
 
         <form
-          onSubmit={handleSubmit(createProjectHandle)}
+          onSubmit={handleSubmit(updateProjectHandle)}
           className=" grid grid-cols-2 gap-3"
         >
           {projectInputs.map((input, i) => (
@@ -87,7 +74,7 @@ const ProjectModal = ({ setProjectModal }) => {
           <div className="flex justify-end col-span-2">
             <button
               type="button"
-              onClick={() => setProjectModal(false)}
+              onClick={() => setIsEditMode(false)}
               className="px-4 py-2 mr-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300"
             >
               Vazgeç
@@ -96,7 +83,7 @@ const ProjectModal = ({ setProjectModal }) => {
               type="submit"
               className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
             >
-              Kaydet
+              Güncelle
             </button>
           </div>
         </form>
@@ -106,4 +93,4 @@ const ProjectModal = ({ setProjectModal }) => {
   );
 };
 
-export default ProjectModal;
+export default EditModal;

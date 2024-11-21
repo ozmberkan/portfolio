@@ -8,7 +8,10 @@ const initialState = {
 
 export const loginService = createAsyncThunk("user/login", async (data) => {
   try {
-    const response = await axios.post("http://localhost:5001/auth/login", data);
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/auth/login`,
+      data
+    );
     return response.data;
   } catch (error) {
     console.log(error.message);

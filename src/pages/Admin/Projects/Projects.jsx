@@ -3,11 +3,14 @@ import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import EditModal from "~/components/UI/Models/EditModal";
 import ProjectModal from "~/components/UI/Models/ProjectModal";
 import { getAllMyProjects } from "~/redux/slices/projectsSlice";
 
 const Projects = () => {
   const [projectModal, setProjectModal] = useState(false);
+  const [editMode, setIsEditMode] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const dispatch = useDispatch();
   const { projects } = useSelector((state) => state.projects);
 
@@ -18,7 +21,7 @@ const Projects = () => {
   const deleteProject = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5001/project/delete/${id}`
+        `${import.meta.env.VITE_API_URL}/project/delete/${id}`
       );
       toast.success("Proje başarıyla silindi!");
       dispatch(getAllMyProjects());
@@ -32,9 +35,21 @@ const Projects = () => {
     }
   };
 
+  const openEdit = (project) => {
+    setIsEditMode(true);
+    setSelectedProject(project);
+  };
+
   return (
     <>
       {projectModal && <ProjectModal setProjectModal={setProjectModal} />}
+
+      {editMode && (
+        <EditModal
+          setIsEditMode={setIsEditMode}
+          selectedProject={selectedProject}
+        />
+      )}
       <div className=" w-full font-inter flex-grow min-h-screen p-2">
         <div className="w-full flex justify-end items-center">
           <button
@@ -46,14 +61,14 @@ const Projects = () => {
         </div>
         <div className=" p-2 mt-2 flex justify-start items-start flex-col gap-2">
           <h1 className="text-black text-2xl font-semibold">Projeler</h1>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 gap-5">
             {projects.allProjects?.map((project) => (
               <div
                 key={project._id}
-                className="flex flex-col gap-2 border bg-white p-4 rounded-xl "
+                className="flex flex-col gap-2 border bg-white shadow-md p-4 rounded-xl "
               >
                 <img
-                  className="w-full h-20 rounded-md object-cover"
+                  className="w-full h-24 rounded-md object-cover"
                   src={project.projectImage}
                 />
                 <div className="font-bold">{project.projectTitle}</div>
@@ -79,8 +94,11 @@ const Projects = () => {
                 <span className="text-sm text-zinc-600">
                   {dayjs(project.createdAt).format("LLL")}
                 </span>
-                <div className="w-full flex justify-center items-center gap-5">
-                  <button className="text-sm w-full font-inter px-4 py-1 text-white bg-[#202020] rounded-md">
+                <div className="w-full flex justify-center items-center gap-5 mt-auto">
+                  <button
+                    onClick={() => openEdit(project)}
+                    className="text-sm w-full font-inter px-4 py-1 text-white bg-[#202020] rounded-md"
+                  >
                     Düzenle
                   </button>
                   <button
