@@ -117,3 +117,65 @@ export const backendTechnologies = [
     since: "2020",
   },
 ];
+
+export const projectInputs = [
+  {
+    id: 1,
+    label: "Proje Başlığı",
+    name: "projectTitle",
+    type: "text",
+    placeholder: "Proje başlığını girin",
+  },
+  {
+    id: 2,
+    label: "Açıklama",
+    name: "projectDescription",
+    type: "text",
+    placeholder: "Proje açıklamasını girin",
+  },
+  {
+    id: 3,
+    label: "Proje Bağlantısı",
+    name: "projectLink",
+    type: "text",
+    placeholder: "Proje bağlantısını girin (örn: https://example.com)",
+  },
+  {
+    id: 4,
+    label: "GitHub Bağlantısı",
+    name: "projectGithubLink",
+    type: "text",
+    placeholder:
+      "GitHub bağlantısını girin (örn: https://github.com/username/repo)",
+  },
+  {
+    id: 5,
+    label: "Kullanılan Teknolojiler",
+    name: "projectTechnology",
+    type: "text",
+    placeholder:
+      "Teknolojileri virgül ile ayırarak girin (örn: React, Node.js)",
+  },
+  {
+    id: 6,
+    label: "Stil Teknolojisi",
+    name: "projectStyleTechnology",
+    type: "text",
+    placeholder: "Kullanılan stil teknolojisini girin (örn: TailwindCSS)",
+  },
+  {
+    id: 7,
+    label: "Proje Versiyonu",
+    name: "projectVersion",
+    type: "text",
+    placeholder: "Proje versiyonunu girin (örn: 1.0.0)",
+  },
+  {
+    id: 8,
+    label: "Responsive Durumu",
+    name: "projectResponsive",
+    type: "select",
+    placeholder: "Responsive durumu (örn: Evet / Hayır)",
+    options: ["Evet", "Hayır"],
+  },
+];
