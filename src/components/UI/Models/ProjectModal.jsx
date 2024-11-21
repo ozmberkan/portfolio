@@ -1,19 +1,24 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { BiImage } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { projectInputs } from "~/data/data";
 import { getAllMyProjects } from "~/redux/slices/projectsSlice";
 
 const ProjectModal = ({ setProjectModal }) => {
   const { register, handleSubmit } = useForm();
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const createProjectHandle = async (data) => {
+    setLoading(true);
     try {
-      const file = data.projectImage[0];
+      const file = selectedFile[0];
       if (!file) return;
 
       const formData = new FormData();
@@ -49,6 +54,8 @@ const ProjectModal = ({ setProjectModal }) => {
       toast.error(
         "Hata oluştu: " + (error.response?.data?.message || error.message)
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -82,9 +89,26 @@ const ProjectModal = ({ setProjectModal }) => {
               />
             </div>
           ))}
-          <input type="file" {...register("projectImage")} />
+          <div className="flex flex-col col-span-2">
+            <label
+              htmlFor="file"
+              className="mt-1 w-full cursor-pointer font-inter text-[#202020] text-sm p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-neutral-500 focus:border-neutral-500"
+            >
+              <span className="flex items-center gap-x-2">
+                <BiImage size={20} />
+                {selectedFile ? selectedFile[0].name : "Proje Resmi Seç"}
+              </span>
+            </label>
+            <input
+              name="file"
+              id="file"
+              type="file"
+              onChange={(e) => setSelectedFile(e.target.files)}
+              className="hidden"
+            />
+          </div>
 
-          <div className="flex justify-end col-span-2">
+          <div className="flex justify-end col-span-2 border-t pt-2 mt-3">
             <button
               type="button"
               onClick={() => setProjectModal(false)}
@@ -94,9 +118,9 @@ const ProjectModal = ({ setProjectModal }) => {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+              className="px-4 py-2 text-white bg-[#202020] rounded hover:bg-[#353535]"
             >
-              Kaydet
+              {loading ? "Yükleniyor..." : "Oluştur"}
             </button>
           </div>
         </form>

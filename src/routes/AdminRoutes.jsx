@@ -7,7 +7,6 @@ export const AdminRoutes = {
   path: "/",
   element: <AdminLayout />,
   children: [
-    { path: "dashboard", element: <Dashboard />, loader: () => roleLoader() },
     {
       path: "/admin/projects",
       element: <Projects />,
