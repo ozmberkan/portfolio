@@ -39,7 +39,8 @@ const Project = ({ project, isOdd }) => {
         <div className="flex items-center justify-between w-full gap-x-2">
           <Link
             to={project.projectLink}
-            className="font-semibold flex items-center gap-x-1 hover:text-[#202020]"
+            target="_blank"
+            className="font-semibold flex items-center gap-x-1 hover:text-[#555]"
           >
             Ziyaret et <IoIosArrowForward />
           </Link>
