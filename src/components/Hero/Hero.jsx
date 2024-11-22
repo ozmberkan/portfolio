@@ -5,11 +5,11 @@ import { useTranslation } from "react-i18next";
 const Hero = () => {
   const { t } = useTranslation();
   return (
-    <div className="w-full h-[400px] flex justify-center items-center flex-col ">
-      <FadeIn className="text-[50px] font-gilroy text-neutral-800 tracking-tighter">
+    <div className="w-full lg:h-[400px] lg:py-0 py-6  text-center flex justify-center items-center flex-col ">
+      <FadeIn className="lg:text-[50px] text-[40px] font-gilroy text-neutral-800 tracking-tighter">
         {t("heroTitle")}
       </FadeIn>
-      <FadeIn className="text-[50px] font-gilroy text-neutral-600">
+      <FadeIn className="lg:text-[50px] text-[20px] font-gilroy text-neutral-600">
         {t("discoverText")}
       </FadeIn>
       <a
