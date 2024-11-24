@@ -6,17 +6,21 @@ const initialState = {
   status: "idle",
 };
 
-export const loginService = createAsyncThunk("user/login", async (data) => {
-  try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_API_URL}/auth/login`,
-      data
-    );
-    return response.data;
-  } catch (error) {
-    console.log(error.message);
+export const loginService = createAsyncThunk(
+  "user/login",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/login`,
+        data
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error.message);
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 export const userSlice = createSlice({
   name: "user",

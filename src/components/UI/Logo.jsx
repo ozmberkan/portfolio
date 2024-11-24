@@ -2,7 +2,7 @@ import { BiCode, BiCodeAlt } from "react-icons/bi";
 
 const Logo = () => {
   return (
-    <div className="px-4 py-2 rounded-md  flex items-center flex-1 justify-center  ">
+    <div className="px-4 py-2 rounded-md  flex items-center flex-1 justify-center w-full   ">
       <span className="text-neutral-600">
         <BiCode size={18} />
       </span>

@@ -34,7 +34,7 @@ const Login = () => {
     <div className="flex flex-col gap-3">
       <h1 className="text-2xl font-semibold font-inter">Oturum Aç</h1>
       <form
-        className="p-3 border rounded-xl shadow-xl flex gap-x-2"
+        className="p-3 border rounded-xl shadow-xl flex lg:flex-row flex-col gap-2"
         onSubmit={handleSubmit(loginHandle)}
       >
         <input

@@ -19,7 +19,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="h-full px-3 py-4 overflow-y-auto bg-transparent min-w-52 min-h-screen flex flex-col  border-r dark:bg-gray-800">
+    <div className="h-full px-3 py-4 overflow-y-auto bg-transparent lg:min-w-52 min-h-screen flex flex-col  border-r dark:bg-gray-800">
       <ul className="space-y-2 font-medium">
         <li>
           <Link
@@ -27,8 +27,10 @@ const Sidebar = () => {
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-neutral-100  group"
           >
             <MdOutlineSpaceDashboard />
-            <span className="flex-1 ms-3 whitespace-nowrap">Projeler</span>
-            <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium bg-[#202020] text-white rounded-full ">
+            <span className="lg:flex hidden ms-3 whitespace-nowrap">
+              Projeler
+            </span>
+            <span className="lg:inline-flex hidden items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium bg-[#202020] text-white rounded-full ">
               {projects?.allProjects?.length}
             </span>
           </Link>
@@ -40,7 +42,7 @@ const Sidebar = () => {
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-neutral-100  group"
           >
             <TbHome />
-            <span className="flex-1 ms-3 whitespace-nowrap">
+            <span className="lg:flex hidden ms-3 whitespace-nowrap">
               Anasayfa'ya Dön
             </span>
           </Link>
@@ -51,7 +53,9 @@ const Sidebar = () => {
             className="flex items-center p-2 text-red-900 rounded-lg  hover:bg-red-100  group"
           >
             <TbHome />
-            <span className="flex-1 ms-3 whitespace-nowrap">Çıkış Yap</span>
+            <span className="lg:flex hidden ms-3 whitespace-nowrap">
+              Çıkış Yap
+            </span>
           </button>
         </li>
       </ul>

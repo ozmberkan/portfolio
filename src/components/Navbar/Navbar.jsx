@@ -44,7 +44,7 @@ const Navbar = () => {
       {user && (
         <Link
           to="/admin/projects"
-          className="w-44 py-2 rounded-md bg-[#202020] font-inter text-sm text-white flex justify-center items-center"
+          className="w-44  py-2 rounded-md bg-[#202020] font-inter lg:text-sm text-xs text-white flex justify-center items-center"
         >
           Admin Paneli
         </Link>

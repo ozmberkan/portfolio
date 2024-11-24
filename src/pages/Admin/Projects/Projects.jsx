@@ -61,7 +61,7 @@ const Projects = () => {
         </div>
         <div className=" p-2 mt-2 flex justify-start items-start flex-col gap-2">
           <h1 className="text-black text-2xl font-semibold">Projeler</h1>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
             {projects.allProjects?.map((project) => (
               <div
                 key={project._id}
