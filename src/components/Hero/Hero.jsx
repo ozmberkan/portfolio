@@ -12,12 +12,16 @@ const Hero = () => {
       <FadeIn className="lg:text-[50px] text-[20px] font-gilroy text-neutral-600">
         {t("discoverText")}
       </FadeIn>
-      <a
-        href="#projects"
-        className="bg-[#202020] px-12 font-bold transition-all duration-500 py-2 text-neutral-200 mt-5 rounded-full font-inter border-2 border-neutral-700 hover:border-[#202020] hover:border-2 hover:text-neutral-700 hover:bg-transparent"
-      >
-        {t("discoverButton")}
-      </a>
+
+      <div class="uk-panel uk-panel-box uk-text-center mt-5">
+        <a
+          href="#projects"
+          class="uk-button uk-button-large font-inter font-semibold"
+        >
+          {" "}
+          {t("discoverButton")}
+        </a>
+      </div>
     </div>
   );
 };
