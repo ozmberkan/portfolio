@@ -8,18 +8,8 @@ const resources = {
       heroTitle: "Front End Developer React Developer",
       discoverText: "Discover my projects.",
       discoverButton: "Discover",
-      about: `As a Front End developer & designer, we bring digital projects to
-          life. I graduated from Dokuz Eylül University 'Labor Economics and
-          Industrial Relations' department in 2024 and I have been actively
-          involved in software for 1.5 years. I live in Izmir and every day I
-          improve and become more proficient in technologies such as React,
-          TailwindCSS, Figma and Photoshop. With my pixel-perfect design ethos,
-          great attention is paid to detail in both making and design. I emerge
-          from the strength of teams and the addition of strong communication
-          components. I am progressing towards specialization by deepening in
-          the field of reaction. Even though I do not have professional
-          experience in a software industry yet, I am constantly developing
-          projects and updating these projects regularly.`,
+      about: `As a Front-End Developer and Designer, I bring digital projects to life with a blend of technical skills and creative vision. I graduated in 2024 from Dokuz Eylül University with a degree in Labor Economics and Industrial Relations, and I have been actively engaged in software development for 1.5 years. Based in Izmir, I continually refine my expertise in technologies such as React, TailwindCSS, Figma, and Photoshop.
+With a passion for pixel-perfect designs, I approach both development and design with meticulous attention to detail. I thrive on teamwork and strong communication, which I consider essential components of success. Currently, I am focused on deepening my knowledge in React and moving towards specialization in this field. Although I do not yet have professional experience in the software industry, I consistently develop and update personal projects to enhance my skills and stay current.`,
     },
   },
   tr: {
