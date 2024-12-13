@@ -36,7 +36,7 @@ const Project = ({ project, isOdd }) => {
             {project.projectStyleTechnology}
           </p>
         </div>
-        <div className="flex items-center lg:justify-between  justify-center w-full gap-x-2">
+        <div className="flex items-center lg:justify-start  justify-center w-full gap-x-2">
           <Link
             to={project.projectLink}
             target="_blank"
@@ -44,11 +44,25 @@ const Project = ({ project, isOdd }) => {
           >
             Ziyaret et <IoIosArrowForward />
           </Link>
+          <Link
+            to={project.projectGithubLink}
+            target="_blank"
+            className="font-semibold flex items-center gap-x-1 hover:text-[#555]"
+          >
+            Github <IoIosArrowForward />
+          </Link>
         </div>
       </div>
-      <div className="lg:w-1/2 flex justify-center items-center">
-        <img src={project.projectImage} className="w-[800px]" />
-      </div>
+      <Link
+        to={project.projectLink}
+        target="_blank"
+        className="lg:w-1/2 flex justify-center items-center"
+      >
+        <img
+          src={project.projectImage}
+          className="w-[800px] rounded-xl shadow-xl ring-2  ring-offset-4 ring-neutral-200"
+        />
+      </Link>
     </div>
   );
 };
